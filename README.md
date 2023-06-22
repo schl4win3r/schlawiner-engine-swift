@@ -1,3 +1,3 @@
-# MyLibrary
+# Schlawiner Engine
 
-A description of this package.
+Schlawiner engine in Swift.
