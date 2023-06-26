@@ -14,7 +14,7 @@ let algorithmMultipliers: [[Int]] = [
     [10, 100, 1], [100, 1, 10], [100, 10, 1],
 ]
 
-protocol Algorithm: CustomStringConvertible {
+public protocol Algorithm: CustomStringConvertible {
     func compute(a: Int, b: Int, c: Int, target: Int) -> Solutions
 }
 

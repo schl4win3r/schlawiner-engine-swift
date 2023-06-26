@@ -1,4 +1,4 @@
-struct Calculation {
+public struct Calculation {
     let term: Term
     let target: Int
     let bestSolution: Solution

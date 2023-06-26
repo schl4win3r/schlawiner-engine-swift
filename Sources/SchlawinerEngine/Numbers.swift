@@ -1,5 +1,5 @@
-class Numbers {
-    static func random(count: Int) -> Numbers {
+public class Numbers {
+    public static func random(count: Int) -> Numbers {
         Numbers(numbers: Array(repeating: Int.random(in: 1...100), count: count))
     }
     

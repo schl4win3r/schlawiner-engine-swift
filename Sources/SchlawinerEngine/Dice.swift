@@ -16,8 +16,8 @@ enum DiceError : Error {
     case invalidNumber(number: String)
 }
 
-struct Dice {
-    static func random() -> Dice {
+public struct Dice {
+    public static func random() -> Dice {
         Dice(a: Int.random(in: 1...6), b: Int.random(in: 1...6), c: Int.random(in: 1...6))
     }
 

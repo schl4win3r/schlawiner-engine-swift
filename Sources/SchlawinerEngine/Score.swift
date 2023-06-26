@@ -1,6 +1,6 @@
 let emptyScore = Score(term: "", difference: -1)
 
-struct Score: Equatable {
+public struct Score: Equatable {
     let term: String
     let difference: Int
     

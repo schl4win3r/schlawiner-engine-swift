@@ -1,6 +1,6 @@
 import Foundation
 
-class Game {
+public class Game {
     let name: String
     let players: Players
     let numbers: Numbers
@@ -11,7 +11,7 @@ class Game {
     var dice: Dice
     var canceled: Bool
     
-    init(name: String, players: Players, numbers: Numbers, algorithm: Algorithm, settings: Settings) {
+    public init(name: String, players: Players, numbers: Numbers, algorithm: Algorithm, settings: Settings) {
         self.name = name
         self.players = players
         self.numbers = numbers
@@ -23,22 +23,22 @@ class Game {
         self.canceled = false
     }
     
-    func next() {
+    public func next() {
         players.next()
         if (players.first()) {
             numbers.next()
         }
     }
     
-    func isOver() -> Bool {
+    public func isOver() -> Bool {
         return (numbers.hasNext() || !players.last()) && !canceled
     }
     
-    func dice(dice: Dice = Dice.random()) {
+    public func dice(dice: Dice = Dice.random()) {
         self.dice = dice
     }
     
-    func retry() -> Bool {
+    public func retry() -> Bool {
         if players.current.human && players.current.retries > 0 {
             // TODO players.current.retry()
             dice()
@@ -48,19 +48,19 @@ class Game {
         }
     }
     
-    func skip() {
+    public func skip() {
         scoreboard[players.current, numbers.current] = Score(term: "Skipped", difference: settings.penalty)
     }
     
-    func timeout() {
+    public func timeout() {
         scoreboard[players.current, numbers.current] = Score(term: "Timeout", difference: settings.penalty)
     }
     
-    func cancel() {
+    public func cancel() {
         self.canceled = true
     }
     
-    func calculate(expression: String) throws -> Calculation {
+    public func calculate(expression: String) throws -> Calculation {
         let term = try expression.toTerm()
         try dice.validate(term: term)
         let result = try term.eval(assignments: [])
@@ -77,12 +77,12 @@ class Game {
         }
     }
     
-    func solve() -> Solution {
+    public func solve() -> Solution {
         algorithm.compute(a: dice.a, b: dice.b, c: dice.c, target: numbers.current).bestSolution(level: settings.level)
     }
         
 
-    func score(score: Score) {
+    public func score(score: Score) {
         scoreboard[players.current, numbers.current] = score
     }
 }

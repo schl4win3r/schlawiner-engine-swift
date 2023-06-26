@@ -1,6 +1,6 @@
-struct Player {
-    static func human(name: String) -> Player { Player(name: name, human: true, retries: 0) }
-    static func computer(name: String) -> Player { Player(name: name, human: false, retries: 0) }
+public struct Player {
+    public static func human(name: String) -> Player { Player(name: name, human: true, retries: 0) }
+    public static func computer(name: String) -> Player { Player(name: name, human: false, retries: 0) }
 
     let name: String
     let human: Bool
@@ -18,17 +18,17 @@ struct Player {
 }
 
 extension Player: Hashable {
-    static func == (lhs: Player, rhs: Player) -> Bool {
+    public static func == (lhs: Player, rhs: Player) -> Bool {
         return lhs.name == rhs.name && lhs.human == rhs.human
     }
 
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(human)
     }
 }
 
-class Players {
+public class Players {
     let players: [Player]
     var index: Int
     var current: Player {

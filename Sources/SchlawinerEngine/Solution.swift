@@ -1,11 +1,11 @@
 let MAX_SOLUTION: Solution = Solution(term: "", result: Int.max)
 let INVALID_SOLUTION: Solution = Solution(term: "Invalid term", result: Int.max)
 
-struct Solution: CustomStringConvertible, Equatable {
+public struct Solution: CustomStringConvertible, Equatable {
     let term: String
     let result: Int
     
-    var description: String {
+    public var description: String {
         "\(term) = \(result)"
     }
 }

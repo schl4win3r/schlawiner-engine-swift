@@ -1,4 +1,4 @@
-struct Settings {
+public struct Settings {
     static func defauls() -> Settings {
         Settings(timeout: 60, penalty: 5, retries: 3, numbers: 8, level: .medium)
     }
