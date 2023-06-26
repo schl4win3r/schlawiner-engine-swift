@@ -1,7 +1,7 @@
 public struct Calculation {
-    let term: Term
-    let target: Int
-    let bestSolution: Solution
+    public let term: Term
+    public let target: Int
+    public let bestSolution: Solution
     
     var bestDifference: Int {
         abs(bestSolution.result - target)

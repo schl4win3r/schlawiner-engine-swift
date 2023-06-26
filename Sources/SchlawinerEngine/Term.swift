@@ -71,9 +71,9 @@ class Variable: Node {
     }
 }
 
-class Term: Node, Equatable, CustomStringConvertible {
+public class Term: Node, Equatable, CustomStringConvertible {
     
-    static func == (lhs: Term, rhs: Term) -> Bool {
+    public static func == (lhs: Term, rhs: Term) -> Bool {
         lhs.description == rhs.description
     }
     
@@ -92,7 +92,7 @@ class Term: Node, Equatable, CustomStringConvertible {
         }
     }
     
-    var description: String {
+    public var description: String {
         print(assignments: [])
     }
     

@@ -2,9 +2,9 @@ public struct Player {
     public static func human(name: String) -> Player { Player(name: name, human: true, retries: 0) }
     public static func computer(name: String) -> Player { Player(name: name, human: false, retries: 0) }
 
-    let name: String
-    let human: Bool
-    var retries: Int
+    public let name: String
+    public let human: Bool
+    public var retries: Int
     
     init(name: String, human: Bool, retries: Int) {
         self.name = name
