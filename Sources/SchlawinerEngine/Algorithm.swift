@@ -1,5 +1,5 @@
 // Calculated by AlgorithmTests.testFindDifference()
-let defaultDifference = 15
+public let defaultDifference = 15
 let algorithmMultipliers: [[Int]] = [
     [1, 1, 1],
     [1, 1, 10], [1, 10, 1], [10, 1, 1],
@@ -18,16 +18,17 @@ public protocol Algorithm: CustomStringConvertible {
     func compute(a: Int, b: Int, c: Int, target: Int) -> Solutions
 }
 
-class BaseAlgorithm: Algorithm {
+public class BaseAlgorithm: Algorithm {
+
     private let allowedDifference: Int
-    var description: String
+    public var description: String
     
     init(allowedDifference: Int, name: String) {
         self.allowedDifference = allowedDifference
         self.description = name
     }
     
-    func compute(a: Int, b: Int, c: Int, target: Int) -> Solutions {
+    public func compute(a: Int, b: Int, c: Int, target: Int) -> Solutions {
         var solutions = Solutions(target: target, allowedDifference: allowedDifference)
         for multiplier in algorithmMultipliers {
             let am = a * multiplier[0]
@@ -45,8 +46,8 @@ class BaseAlgorithm: Algorithm {
     func differentDiceNumbers(a: Int, b: Int, c: Int) -> Bool { a != b || a != c }
 }
 
-class OperationAlgorithm : BaseAlgorithm {
-    init(allowedDifference: Int = defaultDifference) {
+public class OperationAlgorithm : BaseAlgorithm {
+    public init(allowedDifference: Int = defaultDifference) {
         super.init(allowedDifference: allowedDifference, name: "Algorithm based on static operations")
     }
     
@@ -279,7 +280,7 @@ class OperationAlgorithm : BaseAlgorithm {
     func subtractMultiply(a: Int, b: Int, c: Int) -> Solution { Solution(term: "(\(a) - \(b)) * \(c)", result: (a - b) * c) }
 }
 
-class TermAlgorithm : BaseAlgorithm {
+public class TermAlgorithm : BaseAlgorithm {
     let addAbc: Term
     let subtractAbc: Term
     let subtractBac: Term
@@ -352,7 +353,7 @@ class TermAlgorithm : BaseAlgorithm {
     let abc: [Term]
     let permutations: [Term]
     
-    init(allowedDifference: Int = defaultDifference) {
+    public init(allowedDifference: Int = defaultDifference) {
         // a + b + c
         addAbc = try! "a + b + c".toTerm()
         

@@ -35,7 +35,7 @@ public class Players {
        players[index]
     }
 
-    init(players: [Player]) {
+    public init(players: [Player]) {
         self.players = players
         self.index = 0
     }

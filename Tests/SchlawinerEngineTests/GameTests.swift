@@ -6,7 +6,7 @@ final class GameTests: XCTestCase {
     func testHumanVsComputerDraw() throws {
         let foo = Player.human(name: "foo")
         let computer = Player.computer(name: "computer")
-        var settings = Settings.defauls(); settings.level = .hard
+        var settings = Settings.defaults(); settings.level = .hard
         let game = Game(
             name: "test-game",
             players: Players(players: [foo, computer]),
