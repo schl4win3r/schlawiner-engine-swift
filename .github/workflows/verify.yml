@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v3
-      - name Setup Swift
+      - name: Setup Swift
         id: setup
         uses: swift-actions/setup-swift@v1
       - name: Test
