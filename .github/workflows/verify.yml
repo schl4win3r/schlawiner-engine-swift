@@ -22,6 +22,16 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest
+# Testing is disabled. It causes the following error.
+# ---
+# The bundle “SchlawinerEnginePackageTests.xctest” couldn’t be loaded. Try reinstalling the bundle.
+# (dlopen(/Users/runner/work/schlawiner-engine-swift/schlawiner-engine-swift/.build/x86_64-apple-macosx/debug/SchlawinerEnginePackageTests.xctest/Contents/MacOS/SchlawinerEnginePackageTests, 0x0109): Library not loaded: '/usr/lib/swift/libswiftRegexBuilder.dylib'
+#   Referenced from: '/Users/runner/work/schlawiner-engine-swift/schlawiner-engine-swift/.build/x86_64-apple-macosx/debug/SchlawinerEnginePackageTests.xctest/Contents/MacOS/SchlawinerEnginePackageTests'
+#   Reason: tried: '/usr/lib/swift/libswiftRegexBuilder.dylib' (no such file), '/usr/local/lib/libswiftRegexBuilder.dylib' (no such file), '/usr/lib/libswiftRegexBuilder.dylib' (no such file))
+# ---
+#      - name: Test
+#        id: test
+#        run: swift test
       - name: Build
         id: build
         run: swift build
