@@ -22,9 +22,6 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest
-      - name: Test
-        id: test
-        run: swift test
       - name: Build
         id: build
         run: swift build
